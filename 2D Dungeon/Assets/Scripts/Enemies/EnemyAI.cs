@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+    [SerializeField]
+    private float roamChangeDirFloat = 2f;
     // Start is called before the first frame update
     private enum State
     {
@@ -28,7 +30,7 @@ public class EnemyAI : MonoBehaviour
         {
             Vector2 roamPosition = GetRoamingPosition();
             enemyPathFinding.MoveTo(roamPosition);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(roamChangeDirFloat);
         }
     }
 
