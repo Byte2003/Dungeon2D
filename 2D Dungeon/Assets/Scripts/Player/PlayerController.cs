@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer mySpriteRenderer;
     private bool facingLeft = false;    
     public bool FacingLeft { get { return facingLeft; } set { facingLeft = value; } }
+    public static PlayerController Instance;
     #endregion
 
     #region Methods
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
