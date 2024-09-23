@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2750794680949656813}
   - component: {fileID: 6091985269896053194}
   - component: {fileID: 5022706628381966318}
+  - component: {fileID: 4619185449064008513}
+  - component: {fileID: 7607199934608905530}
   m_Layer: 0
   m_Name: Tree (1)
   m_TagString: Untagged
@@ -79,7 +81,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3, y: 4}
+  m_Size: {x: 1.4375, y: 2.625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -117,6 +119,55 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.014280618, y: -0.007656361}
-  m_Size: {x: 0.389152, y: 0.19932206}
+  m_Offset: {x: 0.042168595, y: 0.02332866}
+  m_Size: {x: 0.8314524, y: 0.4100356}
   m_Direction: 1
+--- !u!58 &4619185449064008513
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6981285951471989852}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.009295821, y: 1.1059532}
+  serializedVersion: 2
+  m_Radius: 0.7237544
+--- !u!114 &7607199934608905530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6981285951471989852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a4b8e0528b5fe42ac0386c58ff3074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transparentAmount: 0.8
+  fadeTime: 0.4
