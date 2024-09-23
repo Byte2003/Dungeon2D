@@ -119,8 +119,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.010990929, y: 0.079636164}
-  m_Size: {x: 1.5132085, y: 0.838652}
+  m_Offset: {x: 0.0109909605, y: 0.34537342}
+  m_Size: {x: 1.5132092, y: 1.3701357}
   m_Direction: 1
 --- !u!58 &-8720620255787025364
 CircleCollider2D:
@@ -169,5 +169,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a4b8e0528b5fe42ac0386c58ff3074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transparentAmount: 0.8
-  fadeTime: 0.4
+  TransparentAmount: 0.8
+  FadeTime: 0.4
