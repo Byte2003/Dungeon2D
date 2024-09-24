@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
     #region Fileds
     public bool FacingLeft { get { return facingLeft; } }
@@ -24,8 +24,6 @@ public class PlayerController : MonoBehaviour
 
     private bool facingLeft = false;
     private bool isDashing = false;
-
-    public static PlayerController Instance;
     #endregion
 
     #region Methods
@@ -36,9 +34,10 @@ public class PlayerController : MonoBehaviour
         PlayerInput();
     }
 
-    private void Awake()
+    protected override void Awake()
     {
-        Instance = this;
+        base.Awake();
+
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
