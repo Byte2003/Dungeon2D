@@ -702,6 +702,7 @@ MonoBehaviour:
   moveSpeed: 4
   dashSpeed: 4
   myTrailRenderer: {fileID: 2143336204}
+  weaponCollider: {fileID: 1676987142}
 --- !u!210 &154102941
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -1597,6 +1598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 555676106}
   - component: {fileID: 555676107}
+  - component: {fileID: 555676108}
   m_Layer: 0
   m_Name: Active Weapon
   m_TagString: Untagged
@@ -1632,7 +1634,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d59260df9c744f6418785d021a8df914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentActiveWeapon: {fileID: 0}
+--- !u!114 &555676108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555676105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0426d1e97077f41a1baf3e86198bcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &569017734 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8014753687826231983, guid: be33f3e9407ca8e458b5b923b5e7d783, type: 3}
