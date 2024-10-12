@@ -7,6 +7,11 @@ public class CameraController : Singleton<CameraController>
 {
     private CinemachineVirtualCamera CinemachineVirtualCamera;
 
+    private void Start()
+    {
+        SetPlayerCameraFollow();
+    }
+
     public void SetPlayerCameraFollow()
     {
         CinemachineVirtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
