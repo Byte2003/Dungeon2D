@@ -174,6 +174,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7145687172909210651, guid: b4af54c72d640a343a863fa3e666ecd2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -255,7 +259,7 @@ PrefabInstance:
       objectReference: {fileID: 1217214563}
     - target: {fileID: 3230120255334657928, guid: 2b4aeae80ef745c4996dddf93ef77b49, type: 3}
       propertyPath: m_ChildCameras.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4549197244592179881, guid: 2b4aeae80ef745c4996dddf93ef77b49, type: 3}
       propertyPath: m_Name
@@ -2521,6 +2525,10 @@ PrefabInstance:
     - target: {fileID: 7145687172909210651, guid: b4af54c72d640a343a863fa3e666ecd2, type: 3}
       propertyPath: m_Name
       value: Ghost (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145687172909210651, guid: b4af54c72d640a343a863fa3e666ecd2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7683,6 +7691,10 @@ PrefabInstance:
     - target: {fileID: 7145687172909210651, guid: b4af54c72d640a343a863fa3e666ecd2, type: 3}
       propertyPath: m_Name
       value: Ghost (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145687172909210651, guid: b4af54c72d640a343a863fa3e666ecd2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15703,6 +15715,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 7145687172909210651, guid: b4af54c72d640a343a863fa3e666ecd2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15764,6 +15780,10 @@ PrefabInstance:
     - target: {fileID: 7145687172909210651, guid: b4af54c72d640a343a863fa3e666ecd2, type: 3}
       propertyPath: m_Name
       value: Ghost (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145687172909210651, guid: b4af54c72d640a343a863fa3e666ecd2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26219,6 +26239,18 @@ PrefabInstance:
     - target: {fileID: 2965410366128783859, guid: b4af54c72d640a343a863fa3e666ecd2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6706732954313463128, guid: b4af54c72d640a343a863fa3e666ecd2, type: 3}
+      propertyPath: angleSpread
+      value: 359
+      objectReference: {fileID: 0}
+    - target: {fileID: 6706732954313463128, guid: b4af54c72d640a343a863fa3e666ecd2, type: 3}
+      propertyPath: bulletMoveSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6706732954313463128, guid: b4af54c72d640a343a863fa3e666ecd2, type: 3}
+      propertyPath: projectilesPerBurst
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7145687172909210651, guid: b4af54c72d640a343a863fa3e666ecd2, type: 3}
       propertyPath: m_Name
