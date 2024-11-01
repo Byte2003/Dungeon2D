@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : Singleton<PlayerHealth>
 {
-    public bool isDead { get; private set; }
+    public bool isDead { get; set; }
 
 
     [SerializeField] private int maxHealth = 3;
@@ -23,7 +23,9 @@ public class PlayerHealth : Singleton<PlayerHealth>
     const string TOWN_TEXT = "Scene_1";
     readonly int DEATH_HASH = Animator.StringToHash("Death");
 
-    protected override void Awake()
+	public GameManagerScript gameManager;
+
+	protected override void Awake()
     {
         base.Awake();
 
@@ -33,12 +35,22 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     private void Start()
     {
-        isDead = false;
-        currentHealth = maxHealth;
-        UpdateHealthSlider();
-    }
+		if (gameManager == null)
+		{
+			gameManager = FindObjectOfType<GameManagerScript>();
+		}
+		ResetHealth();
 
-    private void OnCollisionStay2D(Collision2D other)
+	}
+
+	public void ResetHealth()
+	{
+		isDead = false;
+		currentHealth = maxHealth;
+		UpdateHealthSlider();
+	}
+
+	private void OnCollisionStay2D(Collision2D other)
     {
         EnemyAI enemy = other.gameObject.GetComponent<EnemyAI>();
 
@@ -73,24 +85,29 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     private void CheckIfPlayerDeath()
     {
-        if (currentHealth <= 0 && !isDead)
+
+		if (currentHealth <= 0 && !isDead)
         {
             isDead = true;
             Destroy(ActiveWeapon.Instance.gameObject);
             currentHealth = 0;
             GetComponent<Animator>().SetTrigger(DEATH_HASH);
-            StartCoroutine(DeathLoadSceneRoutine());
-        }
+			gameManager.GameOver();
+			//StartCoroutine(DeathLoadSceneRoutine());
+		}
     }
 
-    private IEnumerator DeathLoadSceneRoutine()
-    {
-        yield return new WaitForSeconds(2f);
-        Destroy(gameObject);
-        SceneManager.LoadScene(TOWN_TEXT);
-    }
 
-    private IEnumerator DamageRecoveryRoutine()
+
+ //   private IEnumerator DeathLoadSceneRoutine()
+ //   {
+ //       yield return new WaitForSeconds(2f);
+ //       Destroy(gameObject);
+ //       SceneManager.LoadScene(TOWN_TEXT);
+	//}
+
+
+	private IEnumerator DamageRecoveryRoutine()
     {
         yield return new WaitForSeconds(damageRecoveryTime);
         canTakeDamage = true;
