@@ -1,0 +1,12 @@
+Arrow: attack_1
+Sword: attack_2
+Staff: 8
+Dash: 14
+========Done=======
+
+Pickup: Coin, Heart, Stamina:
+Vỡ thùng gỗ:
+Ghost sound:
+Slime sound:
+bong bóng vỡ sound:
+bụi cỏ vỡ:

@@ -10,6 +10,8 @@ public class Bow : MonoBehaviour, IWeapon
     private GameObject arrowPrefab;
     [SerializeField]
     private Transform arrowSpawnPoint;
+    [SerializeField] 
+    private AudioSource arrowFireSoundEffect;
 
     readonly int FIRE_HASH = Animator.StringToHash("Fire");
 
@@ -23,6 +25,7 @@ public class Bow : MonoBehaviour, IWeapon
     public void Attack()
     {
         myAnimator.SetTrigger(FIRE_HASH);
+        arrowFireSoundEffect.Play();
         GameObject newArrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, ActiveWeapon.Instance.transform.rotation);
         newArrow.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
     }
