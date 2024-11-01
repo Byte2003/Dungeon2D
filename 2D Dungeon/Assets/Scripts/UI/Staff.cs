@@ -11,6 +11,8 @@ public class Staff : MonoBehaviour, IWeapon
 	private GameObject magicLaser;
 	[SerializeField]
 	private Transform magicLaserSpawnPoint;
+    [SerializeField]
+    private AudioSource magicLaserSoundEffect;
 
     private Animator myAnimator;
 
@@ -29,6 +31,7 @@ public class Staff : MonoBehaviour, IWeapon
     public void Attack()
     {
         myAnimator.SetTrigger(ATTACK_HASH);
+        magicLaserSoundEffect.Play();
     }
 
     public void SpawnStaffProjectileAnimEvent()

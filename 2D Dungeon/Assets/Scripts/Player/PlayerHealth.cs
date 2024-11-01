@@ -23,6 +23,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
     const string TOWN_TEXT = "Scene_1";
     readonly int DEATH_HASH = Animator.StringToHash("Death");
 
+    [SerializeField] private AudioSource takeDamageSoundEffect;
+
     protected override void Awake()
     {
         base.Awake();
@@ -65,6 +67,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
         knockback.GetKnockedBack(hitTransform, knockBackThrustAmount);
         StartCoroutine(flash.FlashRoutine());
         canTakeDamage = false;
+        takeDamageSoundEffect.Play();
         currentHealth -= damageAmount;
         StartCoroutine(DamageRecoveryRoutine());
         UpdateHealthSlider();
