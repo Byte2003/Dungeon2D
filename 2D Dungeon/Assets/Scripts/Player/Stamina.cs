@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,7 +26,8 @@ public class Stamina : Singleton<Stamina>
     private void Start()
     {
         staminaContainer = GameObject.Find(STAMINA_CONTAINER_TEXT).transform;
-    }
+		UpdateStaminaImages();
+	}
 
     public void UseStamina()
     {
@@ -72,4 +73,10 @@ public class Stamina : Singleton<Stamina>
             StartCoroutine(RefreshStaminaRoutine());
         }
     }
+	public void ResetStamina()
+	{
+		CurrentStamina = startingStamina;
+		UpdateStaminaImages();
+		StopAllCoroutines(); // Dừng các coroutine đang chạy để tránh bị đè lên nhau
+	}
 }

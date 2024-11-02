@@ -7,7 +7,11 @@ public class Menu : MonoBehaviour
 {
     public void OnPlayButton()
     {
-        SceneManager.LoadSceneAsync(1);
+		if (GameManagerScript.instance != null)
+		{
+			GameManagerScript.instance.Restart();
+		}
+		SceneManager.LoadSceneAsync(1);
     }
 
     public void OnQuitButton()
