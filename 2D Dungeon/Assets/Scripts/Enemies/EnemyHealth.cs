@@ -9,7 +9,8 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField]
     private GameObject deathVFXPrefab;
     [SerializeField]
-    private float knockBackThrust = 15f;
+    private float baseKnockBackThrust = 15f; 
+    private float knockBackThrust;
     private int currentHealth;
     private Knockback knockback;
     private Flash flash;
@@ -22,9 +23,28 @@ public class EnemyHealth : MonoBehaviour
 
     private void Start()
     {
+        SetDifficultyStats();
         currentHealth = startingHealth;
     }
 
+    private void SetDifficultyStats()
+    {
+        switch (GameManager.Instance.currentDifficulty)
+        {
+            case Difficulty.Easy:
+                startingHealth = 2;
+                knockBackThrust = baseKnockBackThrust * 1.2f;  
+                break;
+            case Difficulty.Medium:
+                startingHealth = 3;
+                knockBackThrust = baseKnockBackThrust;
+                break;
+            case Difficulty.Hard:
+                startingHealth = 5;
+                knockBackThrust = baseKnockBackThrust * 0.8f;  
+                break;
+        }
+    }
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
