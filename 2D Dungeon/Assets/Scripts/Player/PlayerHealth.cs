@@ -10,9 +10,10 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
 
     [SerializeField] private int maxHealth = 3;
-    [SerializeField] private float knockBackThrustAmount = 10f;
+    [SerializeField] private float baseKnockBackThrust = 10f;
     [SerializeField] private float damageRecoveryTime = 1f;
 
+    private float knockBackThrustAmount;
     private Slider healthSlider;
     private int currentHealth;
     private bool canTakeDamage = true;
@@ -41,13 +42,33 @@ public class PlayerHealth : Singleton<PlayerHealth>
 		{
 			gameManager = FindObjectOfType<GameManagerScript>();
 		}
-		ResetHealth();
+        SetDifficultyStats();
+        ResetHealth();
 
 	}
 
-	public void ResetHealth()
+    private void SetDifficultyStats()
+    {
+        switch (GameManager.Instance.currentDifficulty)
+        {
+            case Difficulty.Easy:
+                maxHealth = 5;
+                knockBackThrustAmount = baseKnockBackThrust * 1.2f;  
+                break;
+            case Difficulty.Medium:
+                maxHealth = 4;
+                knockBackThrustAmount = baseKnockBackThrust;
+                break;
+            case Difficulty.Hard:
+                maxHealth = 3;
+                knockBackThrustAmount = baseKnockBackThrust * 0.8f;  
+                break;
+        }
+    }
+
+    public void ResetHealth()
 	{
-		isDead = false;
+        isDead = false;
 		currentHealth = maxHealth;
 		UpdateHealthSlider();
 	}
