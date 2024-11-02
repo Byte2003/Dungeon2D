@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : Singleton<PlayerController>
 {
-    #region Fileds
+    #region Fields
     public bool FacingLeft { get { return facingLeft; } }
     [SerializeField]
     private float moveSpeed = 1f;
@@ -27,6 +27,7 @@ public class PlayerController : Singleton<PlayerController>
 
     private bool facingLeft = false;
     private bool isDashing = false;
+    [SerializeField] private AudioSource dashSoundEffect;
     #endregion
 
     #region Methods
@@ -98,6 +99,7 @@ public class PlayerController : Singleton<PlayerController>
         {
             Stamina.Instance.UseStamina();
             isDashing = true;
+            dashSoundEffect.Play();
             moveSpeed += dashSpeed;
             myTrailRenderer.emitting = true;
             StartCoroutine(EndDashRoutine());

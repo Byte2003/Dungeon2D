@@ -15,12 +15,14 @@ public class GrapeProjectile : MonoBehaviour
     private GameObject gameProjectileShadow;
     [SerializeField]
     private GameObject splatterPrefab;
-
+    [SerializeField]
+    private float offsetY = -0.5f;
     private void Start()
     {
         GameObject grapeShadow = 
             Instantiate(gameProjectileShadow, transform.position + new Vector3(0, -0.3f, 0), Quaternion.identity);
         Vector3 playerPos = PlayerController.Instance.transform.position;
+        playerPos.y += offsetY;
         Vector3 grapeShadowStartPosition = grapeShadow.transform.position;
 
         StartCoroutine(ProjectileCurveRoutine(transform.position, playerPos));

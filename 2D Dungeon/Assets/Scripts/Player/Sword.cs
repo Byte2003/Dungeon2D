@@ -16,6 +16,7 @@ public class Sword : MonoBehaviour, IWeapon
     private Animator myAnimator;
     private GameObject slashAnim;
     private Transform weaponCollider;
+    [SerializeField] private AudioSource swordSoundEffect;
 
     private void Awake()
     {
@@ -41,6 +42,7 @@ public class Sword : MonoBehaviour, IWeapon
     public void Attack()
     {
         myAnimator.SetTrigger("Attack");
+        swordSoundEffect.Play();
         weaponCollider.gameObject.SetActive(true);
         slashAnim = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
         slashAnim.transform.parent = this.transform.parent;

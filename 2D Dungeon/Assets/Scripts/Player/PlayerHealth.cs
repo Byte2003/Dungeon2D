@@ -25,7 +25,9 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
 	public GameManagerScript gameManager;
 
-	protected override void Awake()
+    [SerializeField] private AudioSource takeDamageSoundEffect;
+
+    protected override void Awake()
     {
         base.Awake();
 
@@ -77,6 +79,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
         knockback.GetKnockedBack(hitTransform, knockBackThrustAmount);
         StartCoroutine(flash.FlashRoutine());
         canTakeDamage = false;
+        takeDamageSoundEffect.Play();
         currentHealth -= damageAmount;
         StartCoroutine(DamageRecoveryRoutine());
         UpdateHealthSlider();

@@ -31,7 +31,7 @@ public class Pause : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Escape))
+		if (Input.GetKeyDown(KeyCode.Escape) && !GameManagerScript.instance.isGameOver)
 		{
 			if (isPaused)
 			{
@@ -58,6 +58,7 @@ public class Pause : MonoBehaviour
 	}
 	public void RestartGame()
 	{
+		isPaused = false;
 		ResumeGame();
 		if (GameManagerScript.instance != null)
 		{
