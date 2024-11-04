@@ -10,4 +10,9 @@ public class InventorySlot : MonoBehaviour
     {
         return weaponInfo;
     }
+
+    public void UpdateWeaponDamage(int amount)
+    {
+        weaponInfo.weaponDamage += amount;
+    }
 }

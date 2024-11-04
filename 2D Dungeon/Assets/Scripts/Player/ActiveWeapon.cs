@@ -71,7 +71,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
         attackButtonDown = false;
     }
 
-    private void Attack() 
+    private void Attack()
     {
         if (attackButtonDown && !isAttacking && CurrentActiveWeapon)
         {
@@ -80,4 +80,3 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
         }
     }
 }
-

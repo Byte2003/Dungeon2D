@@ -91,5 +91,4 @@ public class Sword : MonoBehaviour, IWeapon
             weaponCollider.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
-
 }

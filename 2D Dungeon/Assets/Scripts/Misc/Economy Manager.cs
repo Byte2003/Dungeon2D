@@ -10,9 +10,9 @@ public class EconomyManager : Singleton<EconomyManager>
 
     const string COIN_AMOUNT_TEXT = "Gold Amount Text";
 
-    public void UpdateCurrentGold()
+    public void UpdateCurrentGold(int amount)
     {
-        currentGold += 1;
+        currentGold += amount;
 
         if (goldText == null)
         {
@@ -21,6 +21,7 @@ public class EconomyManager : Singleton<EconomyManager>
 
         goldText.text = currentGold.ToString("D3");
     }
+
     public void ResetGold()
     {
         currentGold = 0;
@@ -31,4 +32,8 @@ public class EconomyManager : Singleton<EconomyManager>
         goldText.text = currentGold.ToString("D3");
     }
 
+    public int GetCurrentGold()
+    {
+        return currentGold;
+    }
 }
