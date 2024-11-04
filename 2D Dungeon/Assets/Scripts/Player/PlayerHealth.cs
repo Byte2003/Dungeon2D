@@ -8,7 +8,6 @@ public class PlayerHealth : Singleton<PlayerHealth>
 {
     public bool isDead { get; set; }
 
-
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private float baseKnockBackThrust = 10f;
     [SerializeField] private float damageRecoveryTime = 1f;
@@ -24,7 +23,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     const string TOWN_TEXT = "Scene_1";
     readonly int DEATH_HASH = Animator.StringToHash("Death");
 
-	public GameManagerScript gameManager;
+    public GameManagerScript gameManager;
 
     [SerializeField] private AudioSource takeDamageSoundEffect;
 
@@ -38,14 +37,14 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     private void Start()
     {
-		if (gameManager == null)
-		{
-			gameManager = FindObjectOfType<GameManagerScript>();
-		}
+        if (gameManager == null)
+        {
+            gameManager = FindObjectOfType<GameManagerScript>();
+        }
         SetDifficultyStats();
         ResetHealth();
 
-	}
+    }
 
     private void SetDifficultyStats()
     {
@@ -53,7 +52,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
         {
             case Difficulty.Easy:
                 maxHealth = 5;
-                knockBackThrustAmount = baseKnockBackThrust * 1.2f;  
+                knockBackThrustAmount = baseKnockBackThrust * 1.2f;
                 break;
             case Difficulty.Medium:
                 maxHealth = 4;
@@ -61,19 +60,19 @@ public class PlayerHealth : Singleton<PlayerHealth>
                 break;
             case Difficulty.Hard:
                 maxHealth = 3;
-                knockBackThrustAmount = baseKnockBackThrust * 0.8f;  
+                knockBackThrustAmount = baseKnockBackThrust * 0.8f;
                 break;
         }
     }
 
     public void ResetHealth()
-	{
+    {
         isDead = false;
-		currentHealth = maxHealth;
-		UpdateHealthSlider();
-	}
+        currentHealth = maxHealth;
+        UpdateHealthSlider();
+    }
 
-	private void OnCollisionStay2D(Collision2D other)
+    private void OnCollisionStay2D(Collision2D other)
     {
         EnemyAI enemy = other.gameObject.GetComponent<EnemyAI>();
 
@@ -110,28 +109,28 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private void CheckIfPlayerDeath()
     {
 
-		if (currentHealth <= 0 && !isDead)
+        if (currentHealth <= 0 && !isDead)
         {
             isDead = true;
             Destroy(ActiveWeapon.Instance.gameObject);
             currentHealth = 0;
             GetComponent<Animator>().SetTrigger(DEATH_HASH);
-			gameManager.GameOver();
-			//StartCoroutine(DeathLoadSceneRoutine());
-		}
+            gameManager.GameOver();
+            //StartCoroutine(DeathLoadSceneRoutine());
+        }
     }
 
 
 
- //   private IEnumerator DeathLoadSceneRoutine()
- //   {
- //       yield return new WaitForSeconds(2f);
- //       Destroy(gameObject);
- //       SceneManager.LoadScene(TOWN_TEXT);
-	//}
+    //   private IEnumerator DeathLoadSceneRoutine()
+    //   {
+    //       yield return new WaitForSeconds(2f);
+    //       Destroy(gameObject);
+    //       SceneManager.LoadScene(TOWN_TEXT);
+    //}
 
 
-	private IEnumerator DamageRecoveryRoutine()
+    private IEnumerator DamageRecoveryRoutine()
     {
         yield return new WaitForSeconds(damageRecoveryTime);
         canTakeDamage = true;
@@ -146,5 +145,12 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
+    }
+
+    public void IncreaseMaxHealth(int amount)
+    {
+        maxHealth += amount;
+        currentHealth += amount;
+        UpdateHealthSlider();
     }
 }

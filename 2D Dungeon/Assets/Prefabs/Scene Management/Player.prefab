@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 6337074043662319581}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -393,8 +393,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
-  knockBackThrustAmount: 10
+  baseKnockBackThrust: 10
   damageRecoveryTime: 1
+  gameManager: {fileID: 0}
   takeDamageSoundEffect: {fileID: 6337074043662319581}
 --- !u!114 &4362524940997599661
 MonoBehaviour:
@@ -438,8 +439,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c54e29e4bbaeb4da2a61a7b25c3e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fullStaminaImage: {fileID: 0}
-  emptyStaminaImage: {fileID: 0}
+  fullStaminaImage: {fileID: 21300000, guid: 4f717c838b506f64a860c2408610d3fd, type: 3}
+  emptyStaminaImage: {fileID: 21300000, guid: 3239a5fbc46cc294690e29baaeee29ee, type: 3}
   timeBetweenStaminaRefresh: 3
 --- !u!210 &933467373761094491
 SortingGroup:

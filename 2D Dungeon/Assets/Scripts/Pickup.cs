@@ -90,7 +90,7 @@ public class Pickup : MonoBehaviour
         switch (pickUpType)
         {
             case PickUpType.GoldCoin:
-                EconomyManager.Instance.UpdateCurrentGold();
+                EconomyManager.Instance.UpdateCurrentGold(1);
                 break;
             case PickUpType.StaminaGlobe:
                 Stamina.Instance.RefreshStamina();
