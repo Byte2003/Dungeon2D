@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cinemachine;
+
 
 public class GameManagerScript : MonoBehaviour
 {
 	public static GameManagerScript instance;
 	public bool isGameOver = false;
 	public GameObject gameOverUI;
+	public CinemachineVirtualCamera virtualCamera;
 
 	// đảm bảo static chỉ có 1 instance duy nhất tồn tại trong cả scene
 	void Awake()
@@ -33,6 +36,22 @@ public class GameManagerScript : MonoBehaviour
 		if (gameOverUI != null)
 		{
 			gameOverUI.SetActive(false);
+		}
+		SetupCamera();
+
+	}
+
+	public void SetupCamera()
+	{
+		if (virtualCamera == null)
+		{
+			virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
+		}
+
+		GameObject player = GameObject.FindGameObjectWithTag("Player");
+		if (player != null && virtualCamera != null)
+		{
+			virtualCamera.Follow = player.transform;
 		}
 
 	}
@@ -72,12 +91,23 @@ public class GameManagerScript : MonoBehaviour
 		{
 			Pause.instance.ResumeGame();
 		}
-		SceneManager.LoadScene("Scene_1");
-
+		SceneManager.LoadSceneAsync("Scene_1").completed += (AsyncOperation op) =>
+		{
+			SetupCamera();
+		};
 	}
 
 	public void MainMenu()
 	{
+		isGameOver = false;
+		if (gameOverUI != null)
+		{
+			gameOverUI.SetActive(false);
+		}
+		if (GameManager.Instance != null)
+		{
+			Destroy(GameManager.Instance.gameObject);
+		}
 		SceneManager.LoadScene("Menu");
 	}
 	public void Quit()
